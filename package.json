@@ -16,8 +16,5 @@
   "bugs": {
     "url": "https://github.com/JoaquinAngelino/Bsale-client/issues"
   },
-  "homepage": "https://github.com/JoaquinAngelino/Bsale-client#readme",
-  "dependencies": {
-    "bootstrap": "^5.2.2"
-  }
+  "homepage": "https://github.com/JoaquinAngelino/Bsale-client#readme"
 }
