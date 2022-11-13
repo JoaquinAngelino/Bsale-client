@@ -17,3 +17,6 @@ category(categories)
 
 searchListener()
 
+//  FATLA DEPLOY  (obligatorio)
+//  FALTA DOCUMENTACION EN LOS README (revisar el .pdf del ejercicio)  (peso 20%)
+//  FALTA ESTILOS  (no se menciona como requisito - pero pide UX)
