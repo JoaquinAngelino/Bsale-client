@@ -1,40 +1,28 @@
-
 export const addContent = (products, categories) => {
 
   const content = document.getElementById('content')
 
-  var child = content.lastElementChild;
-  while (child) {
-    content.removeChild(child);
-    child = content.lastElementChild;
-  }
-
-  if (!products.result.length) {
+  if (!products.result.length) { // No Products Case
     const missingProducts = document.createElement("h2")
     missingProducts.innerHTML = "No products"
     content.appendChild(missingProducts)
     return
   }
 
-  const mapedProducts = products.result.map(e => document.createElement('div'))
-
-  for (let i = 0; i < mapedProducts.length; i++) {
+    products.result.forEach(e => { // Append content to html
+    const item = document.createElement('div')
     const title = document.createElement("h2")
-    title.innerHTML = products.result[i].name;
+    title.innerHTML = e.name;
     const price = document.createElement("p")
-    price.innerHTML = "price: " + products.result[i].price;
+    price.innerHTML = "price: " + e.price;
     const image = document.createElement("img")
-    image.src = products.result[i].url_image;
+    image.src = e.url_image;
     const discount = document.createElement("p")
-    discount.innerHTML = "discount: " + products.result[i].discount;
+    discount.innerHTML = "discount: " + e.discount;
     const category = document.createElement("p")
-    category.innerHTML = "category: " + categories[products.result[i].category - 1].name;
-    mapedProducts[i].appendChild(title)
-    mapedProducts[i].appendChild(image)
-    mapedProducts[i].appendChild(price)
-    mapedProducts[i].appendChild(discount)
-    mapedProducts[i].appendChild(category)
-    mapedProducts[i].classList.add("col-md", "col", "mw-20")
-    content.appendChild(mapedProducts[i])
-  }
+    category.innerHTML = "category: " + categories[e.category - 1].name;
+    item.append(title, image, price, discount, category)
+    item.classList.add("col-4", "item")
+    content.appendChild(item)
+})
 }

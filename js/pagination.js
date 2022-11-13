@@ -1,21 +1,20 @@
-import { paginationListener } from "./paginationListener.js";
-
 export const pagination = (nPages, actual = 1) => {
   const pageContainer = document.getElementById("pagination")
 
-  var child = pageContainer.lastElementChild;
-  while (child) {
-    pageContainer.removeChild(child);
-    child = pageContainer.lastElementChild;
-  }
 
-  for (let i = 0; i < nPages; i++) {
-    const algo = document.createElement('li')
-    algo.innerHTML = i + 1
-    if (i === actual - 1) { algo.classList.add('actual') }
-    paginationListener(algo)
-
-    pageContainer.appendChild(algo)
+  for (let i = 0; i < nPages; i++) {   // numeration + eventListeners
+    const child = document.createElement('li')
+    child.innerHTML = i + 1
+    if (i === actual - 1) {
+      child.classList.add('actual')
+    } else {
+      child.addEventListener("click", () => {
+        let newUrl = new URLSearchParams(window.location.search)
+        newUrl.set("page", child.innerHTML)
+        window.location.search = newUrl.toString()
+      });
+    }
+    pageContainer.appendChild(child)
   }
 
 }

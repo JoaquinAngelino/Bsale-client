@@ -1,7 +1,7 @@
 
-export const fetchProduct = async (name, category, page = 1) => {
-  let nameQuery = name ? "name=" + name + "&" : ""
-  const res = await fetch("http://localhost:3001/product?" + nameQuery);
+export const fetchProduct = async () => {
+  let newUrl = new URLSearchParams(window.location.search)
+  const res = await fetch("http://localhost:3001/product?" + newUrl.toString());
   const data = await res.json()
   return data
 }

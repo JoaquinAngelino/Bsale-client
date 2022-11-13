@@ -1,19 +1,15 @@
-import { addContent } from "./addContent.js";
-import { fetchProduct } from "./fetchData.js";
-import { pagination } from "./pagination.js";
-import { setCount } from "./setCount.js";
 
-export const searchListener = (categories) => {
+export const searchListener = () => {
 
   const search = document.getElementById("search")
 
-  search.addEventListener("keypress", async event => {
+  search.addEventListener("keypress", event => {
     if (event.key !== "Enter") { return }
     event.preventDefault();
-
-    const prod = await fetchProduct(event.target.value)
-    addContent(prod, categories)
-    pagination(prod.pages, 1)
-    setCount(prod.count)
+    let newUrl = new URLSearchParams(window.location.search)
+    newUrl.set("name", event.target.value)
+    newUrl.set("page", "1")
+    newUrl.delete("category")
+    window.location.search = newUrl.toString()
   });
 }
