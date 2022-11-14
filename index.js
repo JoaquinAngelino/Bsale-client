@@ -9,12 +9,10 @@ const products = await fetchProduct()
 const categories = await fetchCategory()
 
 addContent(products, categories)
-console.log(categories, products);
+
 let newUrl = new URLSearchParams(window.location.search)
 pagination(products.pages, newUrl.get("page"))
 setCount(products.count, newUrl.get("name"))
 category(categories)
-
-
 
 searchListener()
