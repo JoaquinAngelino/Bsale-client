@@ -22,7 +22,7 @@ export const addContent = (products, categories) => {
     const category = document.createElement("p")
     category.innerHTML = "category: " + categories[e.category - 1].name;
     item.append(title, image, price, discount, category)
-    item.classList.add("col-4", "item")
+    item.classList.add("item")
     content.appendChild(item)
 })
 }

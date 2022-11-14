@@ -5,6 +5,7 @@ export const pagination = (nPages, actual = 1) => {
   for (let i = 0; i < nPages; i++) {   // numeration + eventListeners
     const child = document.createElement('li')
     child.innerHTML = i + 1
+    child.classList.add('pagination-item')
     if (i === actual - 1) {
       child.classList.add('actual')
     } else {

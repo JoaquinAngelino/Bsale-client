@@ -49,7 +49,9 @@ li:hover{
 
 #counter {
   font-weight: 700;
+  font-size: 1.2rem;
   margin: 10px;
+  margin-left: 70px;
 }
 
 #filters {
@@ -62,4 +64,47 @@ li:hover{
   gap: 1em;
   border-radius: 8px;
   height: auto;
+  position: fixed;
+}
+
+
+.pagination-container{
+  display: flex;
+  margin-top: auto;
+  text-align: center;
+  justify-content: center;
+}
+
+.pagination-item{
+  font-size: 1.3rem;
+  display:inline;
+}
+
+.containerContent {
+  display: flex;
+  align-items: flex-start;
+  justify-content: start;
+  gap: 2em;
+  margin-bottom: 1em;
+}
+
+#content{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-left: 400px;
+  width: 72%;
+  gap: 1em;
+}
+
+.item{
+  width: fit-content;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+#search-btn{
+  cursor: pointer;
+  padding: 5px;
 }

@@ -12,4 +12,15 @@ export const searchListener = () => {
     newUrl.delete("category")
     window.location.search = newUrl.toString()
   });
+
+  const searchBtn = document.getElementById('search-btn')
+
+  searchBtn.addEventListener('click', () => {
+    let newUrl = new URLSearchParams(window.location.search)
+    newUrl.set("name", search.value)
+    newUrl.set("page", "1")
+    newUrl.delete("category")
+    window.location.search = newUrl.toString()
+  })
+
 }
